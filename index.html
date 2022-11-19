@@ -70,12 +70,13 @@
         const key = params.get('key');
 
         $(function () {
-            $('form').submit(function () {
-                liff.getProfile().then((profile) => {
+            $('form').submit(function (e) {
+                e.preventDefault();
+                liff.getProfile().then(function (profile) {
                     const msg = `${profile.userId}`;
                     sendText(msg);
                     return false;
-                }).catch(e => {
+                }).catch(function (e) {
                     window.alert(e);
                 })
             });
