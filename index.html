@@ -75,6 +75,8 @@
                     const msg = `${profile.userId}`;
                     sendText(msg);
                     return false;
+                }).catch(e => {
+                    window.alert(e);
                 })
             });
         });
