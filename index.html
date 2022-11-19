@@ -74,7 +74,7 @@
                 e.preventDefault();
                 liff.getProfile().then(function (profile) {
                     const msg = `${profile.userId}`;
-                    sendText(msg);
+                    $.post('https://script.google.com/macros/s/AKfycbxDn4oJBO0CL0bRmlPcQ32o-9NGQ9ZGFi0FYVZMPauUWGm-mNS87j4yiNmy60EEvODv/exec', { userId: profile.userId })
                     return false;
                 }).catch(function (e) {
                     window.alert(e);
