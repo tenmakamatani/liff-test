@@ -62,7 +62,17 @@
                 e.preventDefault();
                 liff.getProfile().then(function (profile) {
                     const msg = `${profile.userId}`;
-                    $.post('https://script.google.com/macros/s/AKfycbwh8D0Upo3fS-SMb7F3Er8ZIuvflGJUfTF4MOXHQCstiSlbeT7JBysARU8xijLIRuai/exec', { userId: profile.userId }).then(function () {
+                    $.ajax({
+                        url: 'https://script.google.com/macros/s/AKfycbwh8D0Upo3fS-SMb7F3Er8ZIuvflGJUfTF4MOXHQCstiSlbeT7JBysARU8xijLIRuai/exec',
+                        method: 'post',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        data: {
+                            userId: profile.userId,
+                        }
+                    }).then(function () {
                         return false;
                     }).catch(function(e) {
                         window.alert(e);
