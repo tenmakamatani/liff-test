@@ -71,12 +71,11 @@
                         },
                         data: `userId=${profile.userId}`
                     }).then(function () {
+                        liff.closeWindow();
                         return false;
                     }).catch(function(e) {
                         window.alert(e.message);
                     })
-                }).catch(function (e) {
-                    window.alert(e.message);
                 })
             });
         });
